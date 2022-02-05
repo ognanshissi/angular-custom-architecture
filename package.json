@@ -6,7 +6,6 @@
     "start": "ng serve --open",
     "build": "NODE_ENV=production ng build --configuration production",
     "test": "npx jest",
-    "lint": "ng lint",
     "e2e": "npx cypress open"
   },
   "author": {
