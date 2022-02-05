@@ -9,6 +9,11 @@
     "lint": "ng lint",
     "e2e": "npx cypress open"
   },
+  "author": {
+    "email": "bazieambroise@gmail.com",
+    "name": "Ambroise BAZIE",
+    "url": "https://github.com/ognanshissi"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.2.1",
