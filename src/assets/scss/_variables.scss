@@ -1,0 +1,60 @@
+@use '~@angular/material/theming' as mat;
+
+:root {
+   --primary-50: #cd1717;
+   --primary-100: '';
+   --primary-200: '';
+   --primary-300: '';
+   --primary-400: '';
+   --primary-500: '';
+   --primary-600: '';
+   --primary-800: '';
+   --primary-900: '';
+   --primary-a100: '';
+   --primary-a200: '';
+   --primary-a400: '';
+   --primary-a700: '';
+
+  --accent-50: #002;
+  --accent-100: '';
+  --accent-200: '';
+  --accent-300: '';
+  --accent-400: '';
+  --accent-500: '';
+  --accent-600: '';
+  --accent-800: '';
+  --accent-900: '';
+  --accent-a100: '';
+  --accent-a200: '';
+  --accent-a400: '';
+  --accent-a700: '';
+
+  --warn-50: '';
+  --warn-100: '';
+  --warn-200: '';
+  --warn-300: '';
+  --warn-400: '';
+  --warn-500: '';
+  --warn-600: '';
+  --warn-800: '';
+  --warn-900: '';
+  --warn-a100: '';
+  --warn-a200: '';
+  --warn-a400: '';
+  --warn-a700: '';
+
+  --contrast-50: #f30707;
+  --contrast-100: '';
+  --contrast-200: '';
+  --contrast-300: '';
+  --contrast-400: '';
+  --contrast-500: '';
+  --contrast-600: '';
+  --contrast-800: '';
+  --contrast-900: '';
+  --contrast-a100: '';
+  --contrast-a200: '';
+  --contrast-a400: '';
+  --contrast-a700: '';
+}
+

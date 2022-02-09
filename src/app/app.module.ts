@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 // Client modules
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    RouterModule,
     CoreModule,
     SharedModule
   ],
