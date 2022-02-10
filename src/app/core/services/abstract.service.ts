@@ -1,4 +1,3 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 /**
@@ -7,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
  * This abstract class has default method for crud actions
  *
  */
-export abstract class abstractService {
+export abstract class AbstractService {
 
   protected resources = '';
   protected apiRoot = '';
