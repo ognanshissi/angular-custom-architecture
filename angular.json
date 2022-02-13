@@ -82,9 +82,21 @@
           "options": {
             "browserTarget": "ng-material-tailwind:build"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "ng-material-tailwind"
+  "defaultProject": "ng-material-tailwind",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
