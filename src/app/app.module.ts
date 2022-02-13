@@ -12,6 +12,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { EffectsModule } from '@ngrx/effects';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    RouterModule,
     CoreModule,
     SharedModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
