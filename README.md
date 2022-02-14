@@ -1,11 +1,15 @@
 # Angular Architecture
 
+
 This project is not far from Angular auto generated application, what you get with this project:
+
+## Features included
 - [Angular 13](https://angular.io/)
-- [Cypress](https://www.cypress.io/) for e2e
-- [Jest](https://jestjs.io/) for Unit Testing
-- [Tailwindcss](https://tailwindcss.com/)
+- [Cypress](https://www.cypress.io/)
+- [Jest](https://jestjs.io/)
+- [Tailwindcss v3](https://tailwindcss.com/)
 - [Angular Material](https://material.angular.io/)
+- [Eslint - configuration](https://github.com/angular-eslint/angular-eslint#functionality)
 
 The good thing is you get all those packages install for your new [Angular](https://angular.io) project.
 
@@ -32,6 +36,5 @@ Run `npm run e2e` to execute the end-to-end tests via [Cypress](https://www.cypr
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
 
 ## Think You
