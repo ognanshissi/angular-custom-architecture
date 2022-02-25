@@ -15,7 +15,6 @@ export class User {
   }
 }
 
-
 export class UserRole {
   name!: string;
   code!: string;
