@@ -1,5 +1,4 @@
-import { AuthContext } from '../models';
-import { LoginResponse } from '../models';
+import { AuthContext, LoginResponse} from '../models';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
