@@ -7,7 +7,7 @@ import {LoadingModule} from "./layouts/components/loading/loading.module";
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, LoadingModule],
-  exports: [],
+  exports: [LoadingModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
