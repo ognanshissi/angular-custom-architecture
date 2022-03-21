@@ -19,6 +19,22 @@ export class AppComponent {
     this._handleNavigationEvent();
   }
 
+
+  showLoader() {
+    this._loading.show('Chargement en cours...' ,{vertical: 'center', horizontal: 'center'});
+    setTimeout(() => this._loading.hide() , 5000);
+  }
+
+  showLoaderNoMessage() {
+    this._loading.show(null ,{vertical: 'center', horizontal: 'center'});
+    setTimeout(() => this._loading.hide() , 5000);
+  }
+
+  showLoaderMessage() {
+    this._loading.show('Loading...' ,{vertical: 'top', horizontal: 'right'});
+    setTimeout(() => this._loading.hide() , 5000);
+  }
+
   private _handleNavigationEvent(): void {
     this._router.events.pipe(filter(event => event instanceof NavigationStart)).subscribe(event => {
       // Start global (page loader)
@@ -39,20 +55,5 @@ export class AppComponent {
 
   private _stopLoader(): boolean {
     return false;
-  }
-
-  showLoader() {
-    this._loading.show('Chargement en cours...',{vertical: 'center', horizontal: 'center'});
-    setTimeout(() => this._loading.hide(), 5000);
-  }
-
-  showLoaderNoMessage() {
-    this._loading.show(null,{vertical: 'center', horizontal: 'center'});
-    setTimeout(() => this._loading.hide(), 5000);
-  }
-
-  showLoaderMessage() {
-    this._loading.show('Loading...',{vertical: 'top', horizontal: 'right'});
-    setTimeout(() => this._loading.hide(), 5000);
   }
 }

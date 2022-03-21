@@ -1,5 +1,5 @@
-import {Injectable} from "@angular/core";
-import {finalize, Observable, Subject} from 'rxjs';
+import {Injectable} from '@angular/core';
+import {Observable, Subject} from 'rxjs';
 
 export interface ILoadingDefaultConfig {
   diameter?: number;
@@ -10,7 +10,7 @@ export interface ILoadingDefaultConfig {
 }
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class LoadingService {
 
@@ -20,13 +20,13 @@ export class LoadingService {
     hasBackDrop: false,
     vertical: 'top',
     horizontal: 'right'
-  }
+  };
 
   private readonly messageSubject: Subject<string | null | undefined> = new Subject<string|null| undefined>();
-  public message$: Observable<string | null | undefined> = this.messageSubject.asObservable();
-
   private readonly loadingStateSubject: Subject<boolean> = new Subject<boolean>();
+
   public loadingState$: Observable<boolean> = this.loadingStateSubject.asObservable();
+  public message$: Observable<string | null | undefined> = this.messageSubject.asObservable();
 
   constructor() {
   }
@@ -34,10 +34,8 @@ export class LoadingService {
   hide = () => this.loadingStateSubject.next(false);
 
   show(message?: string | null, config?: ILoadingDefaultConfig) {
-    this.defaultConfig = {...this.defaultConfig, ...config}
+    this.defaultConfig = {...this.defaultConfig, ...config};
     this.messageSubject.next(message);
     this.loadingStateSubject.next(true);
   }
-
-
 }

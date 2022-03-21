@@ -1,8 +1,14 @@
 <!-- TODO: Add loader globally -->
-<p class="text-2xl text-gray-600 mx-auto text-primary-A700">
+<app-loading></app-loading>
+<p class="text-2xl text-gray-600 mx-auto">
   Welcome to my Angular - {{ title }}
 </p>
-<p>
-  <button mat-raised-button color="primary" >Hello world</button>
-</p>
+
+
+<div class="space-x-5">
+  <button mat-raised-button color="primary" (click)="showLoader()">Show loader</button>
+  <button mat-raised-button color="primary" (click)="showLoaderMessage()">Show with message</button>
+  <button mat-raised-button color="primary" (click)="showLoaderNoMessage()">Show with no message</button>
+
+</div>
 <router-outlet></router-outlet>

@@ -7,8 +7,8 @@ export class Helpers {
   /**
    * This method return a random generated name :)
    */
-  public static randomName(): string {
-    return `Ambroise BAZIE`
+  public static randomName (): string {
+    return 'Ambroise BAZIE';
   }
 
 }

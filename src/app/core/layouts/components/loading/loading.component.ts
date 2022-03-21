@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
   templateUrl: './loading.component.html',
   styleUrls: ['./loading.component.scss']
 })
-export class LoadingComponent implements OnInit{
+export class LoadingComponent implements OnInit {
 
   isLoading$!: Observable<boolean>;
 
@@ -22,35 +22,35 @@ export class LoadingComponent implements OnInit{
     this.isLoading$ = this.config.loadingState$;
     this.config.message$.subscribe(message => {
       this.message = message;
-    })
+    });
   }
 
   verticalClasses = () => {
-    if (this.config.defaultConfig.vertical == 'top') {
-      return ['items-start']
-    } else if (this.config.defaultConfig.vertical == 'center') {
-      return ['items-center']
+    if (this.config.defaultConfig.vertical === 'top') {
+      return ['items-start'];
+    } else if (this.config.defaultConfig.vertical === 'center') {
+      return ['items-center'];
     } else {
-      return ['items-end']
+      return ['items-end'];
     }
-  }
+  };
 
   horizontalClasses = () => {
-    if (this.config.defaultConfig.horizontal == 'left') {
-      return ['justify-start']
-    } else if (this.config.defaultConfig.horizontal == 'center') {
-      return ['justify-center']
+    if (this.config.defaultConfig.horizontal === 'left') {
+      return ['justify-start'];
+    } else if (this.config.defaultConfig.horizontal === 'center') {
+      return ['justify-center'];
     } else {
-      return ['justify-end']
+      return ['justify-end'];
     }
-  }
+  };
 
   hasBackDrop = () => ['bg-black bg-opacity-50 items-start z-50 '];
 
   getClasses(): string[] {
     let classes: string[] = [];
     if (this.config.defaultConfig.hasBackDrop) {
-      classes = [...this.hasBackDrop()]
+      classes = [...this.hasBackDrop()];
     }
 
     // verticalClasses
