@@ -14,13 +14,15 @@ export interface ILoadingDefaultConfig {
 })
 export class LoadingService {
 
-  public defaultConfig: ILoadingDefaultConfig = {
+  private readonly _config: ILoadingDefaultConfig = {
     diameter: 30,
     color: 'primary',
     hasBackDrop: false,
     vertical: 'top',
     horizontal: 'right'
   };
+
+  public defaultConfig: ILoadingDefaultConfig = {...this._config};
 
   private readonly messageSubject: Subject<string | null | undefined> = new Subject<string|null| undefined>();
   private readonly loadingStateSubject: Subject<boolean> = new Subject<boolean>();
@@ -34,7 +36,11 @@ export class LoadingService {
   hide = () => this.loadingStateSubject.next(false);
 
   show(message?: string | null, config?: ILoadingDefaultConfig) {
-    this.defaultConfig = {...this.defaultConfig, ...config};
+    if (config) {
+      this.defaultConfig = {...this._config, ...config};
+    } else {
+      this.defaultConfig = {...this._config};
+    }
     this.messageSubject.next(message);
     this.loadingStateSubject.next(true);
   }

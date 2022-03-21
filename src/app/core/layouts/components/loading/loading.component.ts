@@ -45,20 +45,17 @@ export class LoadingComponent implements OnInit {
     }
   };
 
-  hasBackDrop = () => ['bg-black bg-opacity-50 items-start z-50 '];
+  hasBackDrop = () => ['bg-black bg-opacity-50 items-start z-40 '];
 
   getClasses(): string[] {
     let classes: string[] = [];
     if (this.config.defaultConfig.hasBackDrop) {
       classes = [...this.hasBackDrop()];
     }
-
     // verticalClasses
     classes = [...classes, ...this.verticalClasses()];
-
     // Horizontal classes
     classes = [...classes, ' ', ...this.horizontalClasses()];
-
     return classes;
   }
 

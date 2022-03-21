@@ -34,6 +34,11 @@ export class AppComponent {
     setTimeout(() => this._loading.hide(), 5000);
   }
 
+  showLoaderBackDrop() {
+    this._loading.show(null, {hasBackDrop: true, diameter: 100, vertical: 'center', horizontal: 'center'});
+    setTimeout(() => this._loading.hide(), 5000);
+  }
+
   private _handleNavigationEvent(): void {
     this._router.events.pipe(filter(event => event instanceof NavigationStart)).subscribe(event => {
       // Start global (page loader)
