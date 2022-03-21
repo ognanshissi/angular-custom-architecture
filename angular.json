@@ -31,7 +31,6 @@
             ],
             "styles": [
               "src/assets/scss/material-custom.scss",
-              "src/assets/scss/tailwind.scss",
               "src/styles.scss"
             ],
             "scripts": []
