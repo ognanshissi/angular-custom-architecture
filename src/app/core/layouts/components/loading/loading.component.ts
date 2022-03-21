@@ -1,16 +1,28 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LoadingService} from './loading.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-loading',
   templateUrl: './loading.component.html',
   styleUrls: ['./loading.component.scss']
 })
-export class LoadingComponent {
+export class LoadingComponent implements OnInit{
+
+  isLoading$!: Observable<boolean>;
+
+  message!: string | null | undefined;
 
   constructor(
     public config: LoadingService
   ) {
+  }
+
+  ngOnInit() {
+    this.isLoading$ = this.config.loadingState$;
+    this.config.message$.subscribe(message => {
+      this.message = message;
+    })
   }
 
   verticalClasses = () => {
@@ -47,7 +59,6 @@ export class LoadingComponent {
     // Horizontal classes
     classes = [...classes, ' ', ...this.horizontalClasses()];
 
-    console.log(classes);
     return classes;
   }
 

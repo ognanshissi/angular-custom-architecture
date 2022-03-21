@@ -1,11 +1,12 @@
 import {Injectable} from "@angular/core";
+import {finalize, Observable, Subject} from 'rxjs';
 
 export interface ILoadingDefaultConfig {
-  diameter: number;
-  color: 'primary'|'accent'|'warn';
-  hasBackDrop: boolean;
-  vertical: 'top' | 'center' | 'bottom',
-  horizontal: 'left' | 'center' | 'right'
+  diameter?: number;
+  color?: 'primary'|'accent'|'warn';
+  hasBackDrop?: boolean;
+  vertical?: 'top' | 'center' | 'bottom',
+  horizontal?: 'left' | 'center' | 'right'
 }
 
 @Injectable({
@@ -13,7 +14,7 @@ export interface ILoadingDefaultConfig {
 })
 export class LoadingService {
 
-  defaultConfig: ILoadingDefaultConfig = {
+  public defaultConfig: ILoadingDefaultConfig = {
     diameter: 30,
     color: 'primary',
     hasBackDrop: false,
@@ -21,9 +22,22 @@ export class LoadingService {
     horizontal: 'right'
   }
 
-  loadingState!: boolean;
+  private readonly messageSubject: Subject<string | null | undefined> = new Subject<string|null| undefined>();
+  public message$: Observable<string | null | undefined> = this.messageSubject.asObservable();
+
+  private readonly loadingStateSubject: Subject<boolean> = new Subject<boolean>();
+  public loadingState$: Observable<boolean> = this.loadingStateSubject.asObservable();
 
   constructor() {
   }
+
+  hide = () => this.loadingStateSubject.next(false);
+
+  show(message?: string | null, config?: ILoadingDefaultConfig) {
+    this.defaultConfig = {...this.defaultConfig, ...config}
+    this.messageSubject.next(message);
+    this.loadingStateSubject.next(true);
+  }
+
 
 }
