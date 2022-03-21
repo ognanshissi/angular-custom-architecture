@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
+import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent} from '@angular/router';
 import {filter} from 'rxjs';
+import {LoadingService} from './core/layouts/components/loading/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +12,35 @@ export class AppComponent {
   title = 'ng-material-tailwind';
 
   // Add router event
-  constructor (
-    private _router: Router
+  constructor(
+    private _router: Router,
+    private _loading: LoadingService
   ) {
     this._handleNavigationEvent();
   }
 
+  showLoader() {
+    this._loading.show('Chargement en cours...', {vertical: 'center', horizontal: 'center'});
+    setTimeout(() => this._loading.hide(), 5000);
+  }
+
+  showLoaderNoMessage() {
+    this._loading.show(null, {vertical: 'center', horizontal: 'center'});
+    setTimeout(() => this._loading.hide(), 5000);
+  }
+
+  showLoaderMessage() {
+    this._loading.show('Loading...', {vertical: 'top', horizontal: 'right'});
+    setTimeout(() => this._loading.hide(), 5000);
+  }
+
+  showLoaderBackDrop() {
+    this._loading.show(null, {hasBackDrop: true, diameter: 100, vertical: 'center', horizontal: 'center'});
+    setTimeout(() => this._loading.hide(), 5000);
+  }
+
   private _handleNavigationEvent(): void {
-    this._router.events.pipe(filter(event => event instanceof NavigationStart)).subscribe(() => {
+    this._router.events.pipe(filter(event => event instanceof NavigationStart)).subscribe(event => {
       // Start global (page loader)
       this._startLoader(); // TODO: You can use a global loadingService
     });
@@ -26,7 +48,7 @@ export class AppComponent {
     // Stop loader
     this._router.events.pipe(
       filter(event => event instanceof NavigationEnd || event instanceof NavigationCancel || event instanceof NavigationError)
-    ).subscribe(() => {
+    ).subscribe(event => {
       this._stopLoader();
     });
   }

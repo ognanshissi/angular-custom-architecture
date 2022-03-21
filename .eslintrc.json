@@ -36,7 +36,7 @@
           }
         ],
         "@typescript-eslint/no-inferrable-types": "error",
-        "@typescript-eslint/member-ordering": "error",
+        "@typescript-eslint/member-ordering": "warn",
         "@angular-eslint/no-empty-lifecycle-method": "error",
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "array-bracket-spacing": ["error", "never"],
@@ -76,7 +76,7 @@
         "no-sequences": "error",
         "no-tabs": "error",
         "no-trailing-spaces": "error",
-        "no-underscore-dangle": "warn",
+        "no-underscore-dangle": "off",
         "no-useless-constructor": "warn",
         "no-useless-rename": "error",
         "no-useless-return": "error",
