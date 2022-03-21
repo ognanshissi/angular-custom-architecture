@@ -19,20 +19,19 @@ export class AppComponent {
     this._handleNavigationEvent();
   }
 
-
   showLoader() {
-    this._loading.show('Chargement en cours...' ,{vertical: 'center', horizontal: 'center'});
-    setTimeout(() => this._loading.hide() , 5000);
+    this._loading.show('Chargement en cours...', {vertical: 'center', horizontal: 'center'});
+    setTimeout(() => this._loading.hide(), 5000);
   }
 
   showLoaderNoMessage() {
-    this._loading.show(null ,{vertical: 'center', horizontal: 'center'});
-    setTimeout(() => this._loading.hide() , 5000);
+    this._loading.show(null, {vertical: 'center', horizontal: 'center'});
+    setTimeout(() => this._loading.hide(), 5000);
   }
 
   showLoaderMessage() {
-    this._loading.show('Loading...' ,{vertical: 'top', horizontal: 'right'});
-    setTimeout(() => this._loading.hide() , 5000);
+    this._loading.show('Loading...', {vertical: 'top', horizontal: 'right'});
+    setTimeout(() => this._loading.hide(), 5000);
   }
 
   private _handleNavigationEvent(): void {
