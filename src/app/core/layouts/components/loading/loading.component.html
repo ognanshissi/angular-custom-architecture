@@ -1,6 +1,8 @@
-<div *ngIf="isLoading$ | async" class="flex absolute h-full w-full left-0 top-0 overflow-hidden p-4" [ngClass]="getClasses()">
-  <div class="text-center flex items-center space-x-2 z-50">
-    <mat-spinner class="" [diameter]="config.defaultConfig.diameter" [color]="config.defaultConfig.color"></mat-spinner>
-    <span *ngIf="message">{{message}}</span>
+<ng-container *ngIf="(data$ | async) as loadingData">
+  <div *ngIf="loadingData.loading" class="flex fixed h-full w-full left-0 top-0 overflow-hidden p-4" [ngClass]="getClasses()">
+    <div class="text-center flex items-center space-x-2 z-50">
+      <mat-spinner class="" [diameter]="config.defaultConfig.diameter" [color]="config.defaultConfig.color"></mat-spinner>
+      <span *ngIf="loadingData.message">{{loadingData.message}}</span>
+    </div>
   </div>
-</div>
+</ng-container>
