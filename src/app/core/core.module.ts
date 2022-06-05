@@ -3,7 +3,7 @@ import { EnsureModuleLoadedOnceGuard } from './ensure-module-loaded-once.guard';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import {LoadingModule} from './layouts/components/loading';
+import {LoadingModule} from './layouts/components';
 
 @NgModule({
   imports: [
