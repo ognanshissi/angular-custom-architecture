@@ -1,16 +1,26 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import {LOADING_CONFIG} from './core/layouts/components/loading/config';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {LoadingModule} from './core/layouts/components';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        LoadingModule.forRoot()
       ],
       declarations: [
-        AppComponent
+        AppComponent,
       ],
+      providers: [
+        {
+          provide: LOADING_CONFIG, useValue: {},
+        },
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });
 

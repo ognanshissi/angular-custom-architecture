@@ -18,8 +18,8 @@ export class LoadingModule {
         {
           provide: LOADING_CONFIG,
           useValue: loadingConfig,
-        }
-      ]
+        },
+      ],
     };
   }
 }
