@@ -1,4 +1,5 @@
-const defaultTheme = require("tailwindcss/defaultTheme")
+const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require('tailwindcss/colors');
 
 module.exports = {
   prefix: '',
@@ -6,9 +7,6 @@ module.exports = {
     './src/**/*.{html,ts, scss}',
   ],
   mode: 'jit',
-  purge: {
-    enabled: process.env.NODE_ENV === 'production',
-  },
   darkMode: 'class',
   theme:  {
     extend: {
@@ -28,6 +26,7 @@ module.exports = {
           a200 : 'var(--primary-a200)',
           a400 : 'var(--primary-a400)',
           a700 : 'var(--primary-a700)',
+          DEFAULT: 'var(--primary-500)'
         },
         accent: {
           50 : 'var(--accent-50)',
@@ -44,6 +43,7 @@ module.exports = {
           a200 : 'var(--accent-a200)',
           a400 : 'var(--accent-a400)',
           a700 : 'var(--accent-a700)',
+          DEFAULT: 'var(--accent-500)',
         },
         warn: {
           50 : 'var(--warn-50)',
@@ -60,6 +60,7 @@ module.exports = {
           a200 : 'var(--warn-a200)',
           a400 : 'var(--warn-a400)',
           a700 : 'var(--warn-a700)',
+          DEFAULT: 'var(--warn-500)'
         },
         contrast: {
           50 : 'var(--contrast-50)',
@@ -76,7 +77,11 @@ module.exports = {
           a200 : 'var(--contrast-a200)',
           a400 : 'var(--contrast-a400)',
           a700 : 'var(--contrast-a700)',
-        }
+        },
+        green: colors.emerald,
+        yellow: colors.amber,
+        purple: colors.violet,
+        // gray: colors.neutral
       }
     },
     fontFamily: {
@@ -87,11 +92,7 @@ module.exports = {
       ...defaultTheme.screens,
       '2xl': '1280px',
       '3xl': '1280px',
-    },
-    extends: {}
-  },
-  variants: {
-    extend: {}
+    }
   },
   plugins: []
 }
