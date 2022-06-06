@@ -1,28 +1,35 @@
 import {Component, OnInit} from '@angular/core';
 import {LoadingService} from './loading.service';
-import {Observable} from 'rxjs';
+import {combineLatest, map, Observable} from 'rxjs';
+
+interface LoadingData {
+  loading: boolean;
+  message: string | null | undefined;
+}
 
 @Component({
   selector: 'app-loading',
-  templateUrl: './loading.component.html',
-  styleUrls: ['./loading.component.scss']
+  templateUrl: './loading.component.html'
 })
 export class LoadingComponent implements OnInit {
 
-  isLoading$!: Observable<boolean>;
+  data$!: Observable<LoadingData>;
 
-  message!: string | null | undefined;
-
-  constructor(
+  constructor (
     public config: LoadingService
   ) {
   }
 
-  ngOnInit() {
-    this.isLoading$ = this.config.loadingState$;
-    this.config.message$.subscribe(message => {
-      this.message = message;
-    });
+  ngOnInit (): void {
+
+    this.data$ = combineLatest([this.config.loadingState$, this.config.message$]).pipe(
+      map(([loading, message]) => {
+        return {
+          loading,
+          message,
+        };
+      }),
+    );
   }
 
   verticalClasses = () => {
@@ -47,7 +54,7 @@ export class LoadingComponent implements OnInit {
 
   hasBackDrop = () => ['bg-black bg-opacity-50 items-start z-40 '];
 
-  getClasses(): string[] {
+  getClasses (): string[] {
     let classes: string[] = [];
     if (this.config.defaultConfig.hasBackDrop) {
       classes = [...this.hasBackDrop()];

@@ -77,7 +77,7 @@
         "no-tabs": "error",
         "no-trailing-spaces": "error",
         "no-underscore-dangle": "off",
-        "no-useless-constructor": "warn",
+        "no-useless-constructor": "off",
         "no-useless-rename": "error",
         "no-useless-return": "error",
         "no-var": "error",
