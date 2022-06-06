@@ -106,8 +106,9 @@
       }
     }
   },
-  "defaultProject": "ng-material-tailwind",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
