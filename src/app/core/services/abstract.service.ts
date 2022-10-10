@@ -9,8 +9,9 @@ import { HttpClient } from '@angular/common/http';
 export abstract class AbstractService {
 
   protected resources = '';
+
   protected apiRoot = '';
 
-  constructor(private _http: HttpClient) { }
+  constructor (private _http: HttpClient) { }
 
 }

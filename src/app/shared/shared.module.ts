@@ -6,7 +6,7 @@ import {RouterModule} from '@angular/router';
 const moduleList = [
   CommonModule,
   RouterModule,
-  MaterialModule
+  MaterialModule,
 ];
 
 @NgModule({
