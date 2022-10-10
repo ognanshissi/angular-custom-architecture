@@ -1,10 +1,11 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require('tailwindcss/colors');
+const { join } = require('path');
 
 module.exports = {
   prefix: '',
   content: [
-    './src/**/*.{html,ts, scss}',
+    join(__dirname, 'src/**/!(*.stories|*.spec).{ts,html}'),
   ],
   mode: 'jit',
   darkMode: 'class',
@@ -88,10 +89,13 @@ module.exports = {
       ...defaultTheme.fontFamily,
       sans: ["Roboto", "sans-serif", ...defaultTheme.fontFamily.sans]
     },
-    screens: {
-      ...defaultTheme.screens,
-      '2xl': '1280px',
-      '3xl': '1280px',
+    container: {
+      center: true,
+      padding: '1rem',
+      screens: {
+        '2xl': '1280px',
+        '3xl': '1280px'
+      }
     }
   },
   plugins: []
